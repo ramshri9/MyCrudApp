@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -35,11 +35,6 @@
 	  <artifactId>spring-boot-starter-data-mongodb</artifactId>
 	  <version>2.7.0</version>
 	</dependency>
-	<dependency>
-  		<groupId>org.springframework.kafka</groupId>
-  		<artifactId>spring-kafka</artifactId>
-  		<version>2.5.2.RELEASE</version>
-	</dependency>	
   </dependencies>
 
   <build>
@@ -84,6 +79,10 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>        
       </plugins>
     </pluginManagement>
 	<resources>
@@ -91,6 +90,6 @@
         	<directory>src/main/resources</directory>
         	<filtering>true</filtering>
     	</resource>
-	</resources>    
+	</resources>
   </build>
 </project>

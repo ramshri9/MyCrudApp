@@ -1,0 +1,4 @@
+com\build\test\demo\MyCrudApp\App.class
+com\build\test\demo\MyCrudApp\model\Customer.class
+com\build\test\demo\MyCrudApp\repository\CustomerRepository.class
+com\build\test\demo\MyCrudApp\controller\CustomerController.class

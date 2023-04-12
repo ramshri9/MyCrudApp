@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,6 +69,8 @@ public class CustomerController {
     	Customer _customer = customerRepository.save(new Customer(customer.getCustomerName(), customer.getPostalCode(),customer.getIncome(), customer.getExpense(),customer.getPropertyValue()));
       return new ResponseEntity<>(_customer, HttpStatus.CREATED);
     } catch (Exception e) {
+    	System.out.println("This is the exception");
+    	System.out.println(e.getMessage().toString());
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
@@ -77,6 +80,8 @@ public class CustomerController {
     Optional<Customer> customerData = customerRepository.findById(id);
 
     if (customerData.isPresent()) {
+    	System.out.println("This is inside update");
+    	System.out.println(customer.getCustomerName());
       Customer _customer = customerData.get();
       _customer.setCustomerName(customer.getCustomerName());
       _customer.setPostalCode(customer.getPostalCode());
@@ -89,16 +94,16 @@ public class CustomerController {
     }
   }
 
-  /*@DeleteMapping("/tutorials/{id}")
+  @DeleteMapping("/customers/{id}")
   public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") String id) {
     try {
-      tutorialRepository.deleteById(id);
+      customerRepository.deleteById(id);
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
+/*
   @DeleteMapping("/tutorials")
   public ResponseEntity<HttpStatus> deleteAllTutorials() {
     try {

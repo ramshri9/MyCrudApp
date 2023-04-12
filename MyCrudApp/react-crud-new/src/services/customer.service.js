@@ -17,6 +17,15 @@ class CustomerDataService
         return http.post("/customers",data);
     }
 
+    update(id,data)
+    {
+        return http.put(`/customers/${id}`, data);
+    }
+
+    delete(id)
+    {
+        return http.delete(`/customers/${id}`);
+    }
 }
 
 export default new CustomerDataService();
